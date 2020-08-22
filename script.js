@@ -1,3 +1,9 @@
+var employees = [
+  {Name: "Marta", Last name: "Sanchez", Age: 35},
+  {Name: "Agustin", Last name: "Hererara", Age: 40},
+  {Name: "Diego", Last name: "Rodriguez", Age: 22},
+  {Name: "Manuel", Last name: "Olivares", Age: 28}
+  ];
 
 var validation = prompt("Which is your rol?");
 if (validation === 'admin' || validation === 'resource') {
