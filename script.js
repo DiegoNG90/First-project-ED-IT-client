@@ -39,7 +39,7 @@ if (validation === 'admin' || validation === 'resource') {
     generateTableHead(table);
     generateTable(table, employees);
     for (var i = 0; i < employees.length; i++) {
-      console.log("The employee N° " + (i+1) + " name is " + employees[i][0] + " " + employees[i][1]+ ", and is " + employees[i][2] + " years old.");
+      console.log("The employee N° " + (i+1) + " name is " + employees[i].Name + " " + employees[i].Lastname+ ", and is " + employees[i].Lastname + " years old.");
     }
   } else {
     window.location.replace("error_page.html"); 
@@ -47,3 +47,26 @@ if (validation === 'admin' || validation === 'resource') {
 }else {
   window.location.replace("error_page.html"); // this allows to take user to other page different from index.html
 }
+
+var formValues = ['Nombre','Apellido','Edad'];
+function createForm(){
+    let formulario = document.createElement('form');
+    for (let i = 0; i < 3; i++) {
+        const parrafo = document.createElement('p');
+        formulario.appendChild(parrafo);
+        const entrada = document.createElement('input');
+        formulario.appendChild(entrada);
+        var enter = document.createElement('br');
+        formulario.appendChild(enter);
+        parrafo.innerText = `${formValues[i]}`;  
+        entrada.value = `${formValues[i]}`; 
+    }
+  
+    const boton = document.createElement('button');
+    boton.innerHTML = "Load employee";
+    boton.style = "margin-top: 25PX";
+    formulario.appendChild(boton);
+    document.body.appendChild(formulario);
+}
+
+createForm();
