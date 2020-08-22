@@ -1,12 +1,12 @@
 var employees = [
-  {Name: "Marta", Last name: "Sanchez", Age: 35},
-  {Name: "Agustin", Last name: "Hererara", Age: 40},
-  {Name: "Diego", Last name: "Rodriguez", Age: 22},
-  {Name: "Manuel", Last name: "Olivares", Age: 28}
-  ];
+  {Name: "Marta", Lastname: "Sanchez", Age: 35},
+  {Name: "Agustin", Lastname: "Hererara", Age: 40},
+  {Name: "Diego", Lastname: "Rodriguez", Age: 22},
+  {Name: "Manuel", Lastname: "Olivares", Age: 28}
+];
 
 let table = document.getElementById("tabla")
-let headerTableData = Object.keys(empleados[0]);
+let headerTableData = Object.keys(employees[0]);
 
 
 function generateTableHead(table) {      
@@ -36,9 +36,14 @@ if (validation === 'admin' || validation === 'resource') {
   if (password === "1234") {
     var user = prompt("What's your user name?");
     document.getElementsByTagName('h1').item(0).innerHTML = "Hello " + user + ", welcome to our page.";
+    generateTableHead(table);
+    generateTable(table, employees);
+    for (var i = 0; i < employees.length; i++) {
+      console.log("The employee N° " + (i+1) + " name is " + employees[i][0] + " " + employees[i][1]+ ", and is " + employees[i][2] + " years old.");
+    }
   } else {
     window.location.replace("error_page.html"); 
   }
 }else {
-  window.location.replace("error_page.html"); // this allowss to take user to other page different from index.html
+  window.location.replace("error_page.html"); // this allows to take user to other page different from index.html
 }
