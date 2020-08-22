@@ -5,6 +5,31 @@ var employees = [
   {Name: "Manuel", Last name: "Olivares", Age: 28}
   ];
 
+let table = document.getElementById("tabla")
+let headerTableData = Object.keys(empleados[0]);
+
+
+function generateTableHead(table) {      
+  let thead = table.createTHead();
+  let row = thead.insertRow();
+  for (var i = 0; i < headerTableData.length; i++) {
+    let th = document.createElement('th')
+    let text = document.createTextNode(headerTableData[i]);
+    th.append(text)
+    row.append(th)
+  }
+}
+function generateTable(table,headerTableData){
+  for (let element of headerTableData){
+    let row = table.insertRow();
+    for (key in element){
+      let cell = row.insertCell();
+      let text = document.createTextNode(element[key]);
+      cell.appendChild(text);
+    }
+  }
+}
+
 var validation = prompt("Which is your rol?");
 if (validation === 'admin' || validation === 'resource') {
   var password = prompt("Enter your password: ");
